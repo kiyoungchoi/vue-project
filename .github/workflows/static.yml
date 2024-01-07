@@ -1,4 +1,6 @@
 # Simple workflow for deploying static content to GitHub Pages
+
+# todo: should add detail action.
 name: Deploy static content to Pages
 
 on:
@@ -33,10 +35,12 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        # important part1
       - uses: actions/setup-node@v4
         with:
           node-version: 20 
           # cache: 'npm'
+        #important part2 
       - run: npm ci --legacy-peer-deps
       - run: npm run build
         env:
